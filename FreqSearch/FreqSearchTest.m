@@ -21,6 +21,8 @@ freq_test = 40 : 0.01 : 60;
 [f2_res, rx2, ix2] = diff2(data, fs, freq_test);
 %subplot(3,1,3); plot(freq_test, f2_res); grid on; xlabel('f');  ylabel('f2');
 
-plot(freq_test, amp.^2, 'r', freq_test, f1_res, 'b', freq_test, f2_res, 'k'); grid on; legend('amp2', 'f1', 'f2'); hold on;
+%plot(freq_test, amp.^2, 'r', freq_test, f1_res, 'b', freq_test, f2_res, 'k'); grid on; legend('amp2', 'f1', 'f2'); hold on;
+%freq = NewtonSearch(@diff1, @diff2, 0.01, 5, 51.5, data, fs);
 
-freq = NewtonSearch(@diff1, @diff2, 0.01, 5, 51.5, data, fs);
+plot(freq_test, amp, 'b'); grid on;  hold on;
+[freq, x1, x2] = GoldenSection(@ddft, 0.001, 20, 49, 52, data, fs);
