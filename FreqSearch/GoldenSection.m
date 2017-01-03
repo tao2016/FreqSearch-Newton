@@ -1,4 +1,4 @@
-function [x, x1, x2] = GoldenSection(f, delta, n, a, b, data, fs)
+function [x, x1, x2, cnt] = GoldenSection(f, delta, n, a, b, data, fs)
 %对于单峰函数f(x)，用黄金分割法求[a, b]内的极大值，返回极大值点对于的x
 
 GoldenRatio = 0.618033988749895;
@@ -31,5 +31,6 @@ end
 
 x1 = a;
 x2 = b;
+cnt = k;
 x = (a + b)/2;
 plot(x, f(data, fs, x), '*r');
