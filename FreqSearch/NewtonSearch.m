@@ -5,7 +5,7 @@ for k = 1 : n
         break;
     end
     temp1 = f1(data, fs, x0);
-    plot(x0,temp1, '*r');
+    %plot(x0,temp1, '*r');
     temp2 = f2(data, fs, x0);
     x1 = x0 - temp1/temp2;
     if (abs(x1-x0) < delta)
