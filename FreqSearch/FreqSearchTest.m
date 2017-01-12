@@ -2,7 +2,8 @@ close all; clear all; clc;
 
 fs = 4000;
 num = 4096;
-win = parzenwin(num);
+% win = parzenwin(num);
+win = blackman(num);
 t = (1:num)/fs;  t = t(:);
 
 FL = 40;
