@@ -16,7 +16,8 @@ ADPresion = 16;
 
 xInter = 0*sin(2*pi*60*t); %间谐波
 for k = 1 : length(Fb)
-    data = (sin(2*pi*Fb(k)*t) + xInter + 0.01*randn(num, 1));
+    xHarm = 0.1*sin(6*pi*Fb(k)*t) + 0.1*sin(10*pi*Fb(k)*t); % 谐波
+    data = (sin(2*pi*Fb(k)*t) + xHarm + xInter + 0.01*randn(num, 1));
     % AD量化，并加窗
     data = round(data .* 2^ADPresion) .* win; % data = round(data .* 2^ADPresion) .* win/2^ADPresion;
     FData = fft(data);
